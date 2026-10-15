@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crucible of Scorn | Official Band Page & EPK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -36,16 +39,18 @@
             align-items: center;
         }
 
+     /* Top-left brand logo: solid red with a subtle dark aura */
         .brand-name {
             font-size: 1.3rem;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ffffff;
+            color: #ef2d3e; /* All Red */
+            text-shadow: 0 0 10px rgba(239, 45, 62, 0.4);
         }
 
         .brand-name span {
-            color: #ef2d3e;
+            color: #ef2d3e; /* Keeps everything solid red */
         }
 
         nav a {
@@ -70,12 +75,15 @@
             border-bottom: 1px solid rgba(239, 45, 62, 0.3);
         }
 
+     /* Metal Blackletter Heading */
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-family: 'UnifrakturMaguntia', cursive, serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
             color: #ffffff;
-            text-transform: uppercase;
             letter-spacing: 3px;
             margin: 1.5rem 0 0.5rem;
+            text-shadow: 0 0 15px rgba(239, 45, 62, 0.6), 2px 2px 4px #000;
+            font-weight: normal;
         }
 
         .hero-sub {

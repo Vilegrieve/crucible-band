@@ -557,6 +557,96 @@
             text-shadow: 0 0 10px rgba(239, 45, 62, 0.4);
         }
 
+        /* Live Show Photo Reel / Infinite Marquee */
+        .gallery-section {
+            padding: 5rem 0; /* Full-bleed width across screen */
+            overflow: hidden;
+            background: #050507;
+            border-top: 1.5px solid var(--border-red);
+            border-bottom: 1.5px solid var(--border-red);
+            position: relative;
+        }
+
+        .gallery-title-wrap {
+            max-width: 1100px;
+            margin: 0 auto 2.5rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        /* Vignettes on the left/right edges so photos dissolve into the background */
+        .marquee-container {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            flex-shrink: 0;
+            animation: scrollMarquee 28s linear infinite;
+        }
+
+        /* Pause auto-scroll on hover or tap */
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .gallery-item {
+            width: 320px;
+            height: 220px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-red);
+            background: #121013;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--blood-red);
+            box-shadow: 0 12px 30px rgba(239, 45, 62, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%) contrast(110%);
+            transition: filter 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        /* Continuous Loop Animation */
+        @keyframes scrollMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% - 1.5rem));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: 250px;
+                height: 175px;
+            }
+            .marquee-track {
+                animation-duration: 20s; /* slightly faster on smaller screens */
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -570,6 +660,7 @@
                     <li><a href="#bio">Bio</a></li>
                     <li><a href="#shows">Shows</a></li>
                     <li><a href="#music">Music</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#epk">Media Kit</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -704,6 +795,64 @@
                 <span style="color: var(--text-muted);">Upcoming Regional Show Schedule</span>
             </div>
             <a href="#contact" class="btn btn-secondary">Book Show</a>
+        </div>
+    </section>
+
+        <!-- Live Show Gallery Reel -->
+    <section class="gallery-section" id="gallery">
+        <div class="gallery-title-wrap">
+            <h2 class="sec-title" style="margin-bottom: 0;">Battleground Archive</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 0.5rem;">Live Rituals & Stage Footage</p>
+        </div>
+
+        <div class="marquee-container">
+            <!-- First Track Instance -->
+            <div class="marquee-track">
+                <div class="gallery-item"><img src="images/1.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/2.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/3.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/4.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/5.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                 <div class="gallery-item"><img src="images/6.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/7.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/8.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/9.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/10.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                 <div class="gallery-item"><img src="images/11.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/12.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/13.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/14.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/15.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                 <div class="gallery-item"><img src="images/16.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/17.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/18.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/19.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/20.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+            </div>
+
+            <!-- Duplicate Track Instance for Seamless Loop -->
+            <div class="marquee-track" aria-hidden="true">
+              <div class="gallery-item"><img src="images/1.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/2.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/3.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/4.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/5.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                 <div class="gallery-item"><img src="images/6.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/7.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/8.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/9.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/10.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                 <div class="gallery-item"><img src="images/11.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/12.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/13.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/14.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/15.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                 <div class="gallery-item"><img src="images/16.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/17.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/18.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/19.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/20.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+            </div>
         </div>
     </section>
 

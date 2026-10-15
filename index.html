@@ -230,16 +230,16 @@
             font-weight: bold;
         }
 
-        /* Band Members Vertical Stack & Fade Effects */
+        /* Band Members Vertical Stack & Emergence Fade */
         .member-stack {
             display: flex;
             flex-direction: column;
-            gap: 4rem; /* Even spacing between cards */
-            max-width: 800px;
+            gap: 4.5rem; /* Even spacing between cards */
+            max-width: 820px;
             margin: 4rem auto 0;
         }
 
-        /* The member card, starting hidden */
+        /* The member card wrapper */
         .member-card {
             display: grid;
             grid-template-columns: 1fr;
@@ -249,17 +249,17 @@
             border: 1.5px solid var(--border-red);
             padding: 2.5rem;
             border-radius: 6px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            /* Scroll Fade Effect styles */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            
+            /* Card starts faded slightly down */
             opacity: 0;
-            transform: translateY(40px);
-            filter: grayscale(100%) brightness(0); /* Black state */
-            transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+            transform: translateY(35px);
+            transition: opacity 1s ease-out, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (min-width: 650px) {
             .member-card {
-                grid-template-columns: 240px 1fr; /* Image on left, Details on right */
+                grid-template-columns: 240px 1fr;
             }
         }
 
@@ -267,24 +267,36 @@
         .member-card.visible {
             opacity: 1;
             transform: translateY(0);
-            filter: grayscale(30%) brightness(1); /* Smooth rise & color reveal */
         }
 
+        /* Headshot Image Container */
         .member-img-box {
+            position: relative;
             width: 100%;
             max-width: 240px;
-            aspect-ratio: 1; /* Squarish headshot */
+            aspect-ratio: 1;
             border: 1.5px solid var(--border-red);
             overflow: hidden;
-            background: #18090b;
+            background: #000000;
             margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
         }
 
+        /* Headshot Image: Starts pitch black */
         .member-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            filter: brightness(0) contrast(140%);
+            transform: scale(0.96);
+            transition: filter 1.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.4s ease-out;
+        }
+
+        /* Photo emerges from the shadows into full color */
+        .member-card.visible .member-img-box img {
+            filter: brightness(1) contrast(100%);
+            transform: scale(1);
         }
 
         .member-details {
@@ -306,14 +318,14 @@
             text-align: center;
             margin-bottom: 0.2rem;
         }
-        
-      .member-title {
+
+        .member-title {
             font-family: 'Special Elite', cursive, sans-serif;
             font-size: 1.6rem;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            text-align: center; /* Centers the position */
+            text-align: center;
             margin-bottom: 0.4rem;
         }
 
@@ -324,6 +336,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 900;
+            text-align: center;
             margin-bottom: 1rem;
         }
 
@@ -352,7 +365,7 @@
             background: #18090b;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .album-art-wrap img {
@@ -492,7 +505,6 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-logo-box">
-            <!-- Matches logo.png in your GitHub repo -->
             <img src="logo.png" alt="Crucible of Scorn Logo">
         </div>
         <h1>CRUCIBLE OF SCORN</h1>
@@ -513,20 +525,20 @@
 
         <!-- Vertical Stack of Headshot Cards -->
         <div class="member-stack">
-            <!-- Member 1: vocalist.png -->
+            <!-- Member 1: Mike -->
             <div class="member-card">
                 <div class="member-img-box">
-                    <img src="Mike.jpg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="Vocals - Guitar">
+                    <img src="Mike.jpeg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="Vocals - Guitar">
                 </div>
                 <div class="member-details">
                     <div class="member-name">MIKE</div>
                     <h3 class="member-title">Vocals-Guitar</h3>
-                    <div class="member-instrument">Rythmic Warcaller </div>
+                    <div class="member-instrument">Rythmic Warcaller</div>
                     <p class="member-bio">Spitting gravel and guttural tales that detail survival, glory, murder and triumph.</p>
                 </div>
             </div>
 
-            <!-- Member 2: guitarist.png -->
+            <!-- Member 2: Sean -->
             <div class="member-card">
                 <div class="member-img-box">
                     <img src="Sean.jpg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="Riff Destroyer">
@@ -539,23 +551,23 @@
                 </div>
             </div>
 
-            <!-- Member 3: bassist.png -->
+            <!-- Member 3: Eric -->
             <div class="member-card">
                 <div class="member-img-box">
-                    <img src="Eric.jpg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="Bass Rumbler">
+                    <img src="Eric.jpeg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="Bass Rumbler">
                 </div>
                 <div class="member-details">
                     <div class="member-name">ERIC</div>
                     <h3 class="member-title">Bass Guitar</h3>
-                    <div class="member-instrument">Bass Warfare</div>
+                    <div class="member-instrument">Bass Obliteration</div>
                     <p class="member-bio">Laying down the deep, rumbling low-end armor that adds physical weight and cavernous, bone-shattering force to the rhythm.</p>
                 </div>
             </div>
 
-            <!-- Member 4: drummer.png -->
+            <!-- Member 4: Chris -->
             <div class="member-card">
                 <div class="member-img-box">
-                    <img src="Chris.jpg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="The Blaster">
+                    <img src="Chris.jpeg" onerror="this.src='logo.png'; this.style.padding='10%';" alt="The Blaster">
                 </div>
                 <div class="member-details">
                     <div class="member-name">CHRIS</div>
@@ -634,21 +646,21 @@
         <p>© 2026 Crucible of Scorn. Prince George, BC, Canada.</p>
     </footer>
 
-    <!-- Intersection Observer: Smooth Fade In as user scrolls -->
+    <!-- Intersection Observer: Emerges photo and card when scrolled into view -->
     <script>
         const cards = document.querySelectorAll('.member-card');
         
         const observerOptions = {
             root: null,
-            threshold: 0.15, /* Triggers when card enters 15% of screen height */
-            rootMargin: "0px"
+            threshold: 0.25, /* Fires when 25% of card enters view */
+            rootMargin: "0px 0px -40px 0px"
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); /* Only fade-in once */
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);

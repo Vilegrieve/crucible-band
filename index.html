@@ -4,198 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crucible of Scorn | Official Band Page & EPK</title>
-    <!-- Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --bg-dark: #08080a;
-            --bg-card: #121013;
-            --blood-red: #ef2d3e;
-            --dark-red: #8b0000;
-            --border-red: rgba(239, 45, 62, 0.3);
-            --text-light: #f5f5f7;
-            --text-muted: #a0a0aa;
-            --font-head: 'Orbitron', sans-serif;
-            --font-body: 'Red Hat Display', sans-serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: var(--font-body);
+            background-color: #0b0b0e;
+            color: #f0f0f5;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
         }
 
-        /* Navigation */
+        /* Top Header */
         header {
+            background-color: #050507;
+            border-bottom: 2px solid #ef2d3e;
+            padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
-            width: 100%;
             z-index: 100;
-            background: #050507;
-            border-bottom: 2px solid var(--border-red);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .nav-logo {
-            font-family: var(--font-head);
+        .brand-name {
+            font-size: 1.3rem;
             font-weight: 900;
-            font-size: 1.25rem;
-            letter-spacing: 2px;
             text-transform: uppercase;
-            text-decoration: none;
-            color: var(--text-light);
+            letter-spacing: 2px;
+            color: #ffffff;
         }
 
-        .nav-logo span {
-            color: var(--blood-red);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.75rem;
+        .brand-name span {
+            color: #ef2d3e;
         }
 
         nav a {
-            font-family: var(--font-head);
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            color: #a0a0aa;
             text-decoration: none;
-            color: var(--text-muted);
-            transition: color 0.3s ease;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
-            color: var(--blood-red);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0.85rem 1.75rem;
-            font-family: var(--font-head);
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 800;
-            text-decoration: none;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--blood-red);
-            color: #fff;
-            border: 1px solid var(--blood-red);
-            box-shadow: 0 4px 15px rgba(239, 45, 62, 0.35);
-        }
-
-        .btn-primary:hover {
-            background-color: #d81f2f;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(239, 45, 62, 0.5);
-        }
-
-        .btn-secondary {
-            background: rgba(18, 16, 19, 0.8);
-            color: var(--text-light);
-            border: 1px solid var(--border-red);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(239, 45, 62, 0.15);
-            border-color: var(--blood-red);
-            transform: translateY(-2px);
+            color: #ef2d3e;
         }
 
         /* Hero */
         .hero {
-            padding: 6rem 2rem 5rem;
+            padding: 5rem 2rem 4rem;
             text-align: center;
-            background: radial-gradient(circle at center, #23080b 0%, #08080a 80%);
-            border-bottom: 1px solid var(--border-red);
-        }
-
-        .hero-logo-box {
-            max-width: 440px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-logo-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 0 20px rgba(239, 45, 62, 0.45));
+            background: radial-gradient(circle at center, #2b0b0e 0%, #0b0b0e 70%);
+            border-bottom: 1px solid rgba(239, 45, 62, 0.3);
         }
 
         .hero h1 {
-            font-family: var(--font-head);
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            letter-spacing: 2px;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            color: #ffffff;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(239, 45, 62, 0.3);
+            letter-spacing: 3px;
+            margin: 1.5rem 0 0.5rem;
         }
 
         .hero-sub {
-            font-family: var(--font-head);
-            font-size: 1rem;
-            letter-spacing: 3px;
-            color: var(--blood-red);
+            color: #ef2d3e;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
-        .hero-btns {
+        .btn-group {
             display: flex;
-            gap: 1.25rem;
             justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 0.85rem;
         }
 
-        .sec-title {
-            font-family: var(--font-head);
-            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        .btn-red {
+            background-color: #ef2d3e;
+            color: #ffffff;
+            border: 1px solid #ef2d3e;
+        }
+
+        .btn-red:hover {
+            background-color: #c91f2e;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(239, 45, 62, 0.5);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(239, 45, 62, 0.2);
+            border-color: #ef2d3e;
+        }
+
+        /* Sections */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4.5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
-            padding-bottom: 0.8rem;
+            padding-bottom: 0.75rem;
         }
 
-        .sec-title::after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -203,24 +152,21 @@
             transform: translateX(-50%);
             width: 60px;
             height: 3px;
-            background: var(--blood-red);
+            background-color: #ef2d3e;
         }
 
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-red);
+        .box {
+            background-color: #141318;
+            border: 1px solid rgba(239, 45, 62, 0.25);
             padding: 2.5rem;
             border-radius: 4px;
         }
 
-        .bio-text {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
         .bio-text p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.25rem;
+            color: #c0c0cb;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
         .bio-text p:last-child {
@@ -228,95 +174,229 @@
         }
 
         .highlight {
-            color: var(--blood-red);
+            color: #ef2d3e;
             font-weight: bold;
         }
 
-        /* Music Section */
-        .music-grid {
+        /* Music */
+        .album-box {
             display: grid;
             grid-template-columns: 1fr;
             gap: 2.5rem;
             align-items: center;
         }
 
-        @media (min-width: 850px) {
-            .music-grid {
-                grid-template-columns: 320px 1fr;
+        @media (min-width: 800px) {
+            .album-box {
+                grid-template-columns: 280px 1fr;
             }
         }
 
-        .album-art-wrap {
-            border: 1px solid var(--border-red);
-            background: #18090b;
-            padding: 2rem;
+        .album-cover-placeholder {
+            aspect-ratio: 1;
+            background-color: #1f0b0d;
+            border: 1px solid #ef2d3e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 1.5rem;
         }
 
-        .album-art-wrap img {
-            width: 100%;
-            max-width: 240px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .release-tag {
-            font-family: var(--font-head);
-            font-size: 0.8rem;
-            color: var(--blood-red);
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        .album-title {
-            font-family: var(--font-head);
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .album-desc {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
+        .album-cover-placeholder h4 {
+            color: #ef2d3e;
+            font-size: 1.2rem;
+            text-transform: uppercase;
         }
 
         .tracklist {
             list-style: none;
-            margin-bottom: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin: 1.5rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .tracklist li {
+            padding: 0.65rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             font-size: 0.95rem;
         }
 
-        .tracklist li:hover {
-            color: var(--blood-red);
-        }
-
-        .t-num {
-            color: var(--blood-red);
-            font-family: var(--font-head);
+        .track-num {
+            color: #ef2d3e;
             font-weight: bold;
             width: 35px;
         }
 
-        .t-title {
-            font-weight: 700;
-        }
-
-        .stream-btns {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Tour Row */
+        /* Tour list */
         .tour-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            background-color: #141318;
+            border-left: 4px solid #ef2d3e;
+            border-top: 1px solid rgba(239, 45, 62, 0.25);
+            border-right: 1px solid rgba(239, 45, 62, 0.25);
+            border-bottom: 1px solid rgba(239, 45, 62, 0.25);
+            padding: 1.5rem 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tour-date {
+            color: #ef2d3e;
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        /* EPK Box */
+        .epk-box {
+            border: 2px solid #ef2d3e;
+            background: linear-gradient(180deg, #1c080a 0%, #100f14 100%);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .epk-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .epk-box p {
+            color: #a0a0aa;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(239, 45, 62, 0.2);
+            background-color: #050507;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            color: #888899;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="brand-name">Crucible of <span>Scorn</span></div>
+            <nav>
+                <a href="#bio">Bio</a>
+                <a href="#music">Music</a>
+                <a href="#shows">Shows</a>
+                <a href="#epk">Media Kit</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <!-- SVG Crest Logo -->
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ef2d3e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+
+        <h1>Crucible of Scorn</h1>
+        <div class="hero-sub">Thrash & Death Metal • Prince George, BC</div>
+        
+        <div class="btn-group">
+            <a href="#music" class="btn btn-red">Listen Now</a>
+            <a href="#shows" class="btn btn-outline">Tour Dates</a>
+        </div>
+    </section>
+
+    <!-- Bio -->
+    <div class="container" id="bio">
+        <h2 class="section-title">The Band</h2>
+        <div class="box bio-text">
+            <p>Forged in the gritty underbelly of <span class="highlight">Prince George, British Columbia</span>, <span class="highlight">Crucible of Scorn</span> delivers an unrelenting fusion of classic thrash speed and bone-crushing death metal heaviness.</p>
+            <p>Built on aggressive riffing, punishing percussion, and guttural storytelling, the band brings high-energy live onslaughts to stages across Western Canada.</p>
+        </div>
+    </div>
+
+    <!-- Music -->
+    <div class="container" id="music" style="padding-top: 0;">
+        <h2 class="section-title">Sonic Executions</h2>
+        <div class="box">
+            <div class="album-box">
+                <div class="album-cover-placeholder">
+                    <h4>12 Months in Estonia</h4>
+                    <p style="color: #aaa; font-size: 0.8rem; margin-top: 0.5rem;">Official Debut Release</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase;">12 Months in Estonia</h3>
+                    <p style="color: #a0a0aa;">Stream and download the official debut album directly through Bandcamp.</p>
+                    
+                    <ul class="tracklist">
+                        <li><span class="track-num">01</span><span>Siren and the Storm</span></li>
+                        <li><span class="track-num">02</span><span>Legacy of Demise</span></li>
+                        <li><span class="track-num">03</span><span>Norse God (Of Fuck Yeah)</span></li>
+                        <li><span class="track-num">04</span><span>Burn in Hell</span></li>
+                        <li><span class="track-num">05</span><span>Potato Gun Pap Smear</span></li>
+                        <li><span class="track-num">06</span><span>Glory of It All</span></li>
+                        <li><span class="track-num">07</span><span>Orderly Failure</span></li>
+                    </ul>
+
+                    <a href="https://crucibleofscorn.bandcamp.com" target="_blank" class="btn btn-red">Buy on Bandcamp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shows -->
+    <div class="container" id="shows" style="padding-top: 0;">
+        <h2 class="section-title">Live Dates</h2>
+        <div class="tour-row">
+            <div class="tour-date">TBA</div>
+            <div>
+                <strong>Western Canada Dates</strong><br>
+                <span style="color: #a0a0aa;">Upcoming Regional Show Schedule</span>
+            </div>
+            <a href="#contact" class="btn btn-outline">Book Show</a>
+        </div>
+    </div>
+
+    <!-- EPK Section (For Facebook Page) -->
+    <div class="container" id="epk" style="padding-top: 0;">
+        <div class="box epk-box">
+            <h3>Electronic Press Kit (EPK)</h3>
+            <p>Access high-resolution assets, bio sheets, and stage plots for booking, festivals, and press features.</p>
+            <a href="mailto:crucibleofscorn@gmail.com?subject=EPK%20Request" class="btn btn-red">Request Press Kit</a>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="container" id="contact" style="padding-top: 0;">
+        <h2 class="section-title">Booking & Contact</h2>
+        <div class="box" style="text-align: center;">
+            <p style="text-transform: uppercase; letter-spacing: 1px; color: #a0a0aa; margin-bottom: 0.5rem;">Direct Booking Inquiries</p>
+            <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 0.5rem;">
+                <a href="mailto:crucibleofscorn@gmail.com" style="color: #ef2d3e; text-decoration: none;">crucibleofscorn@gmail.com</a>
+            </p>
+            <p style="color: #888899;">Phone: +1 778-349-5852</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Crucible of Scorn. Prince George, BC, Canada.</p>
+    </footer>
+
+</body>
+</html>

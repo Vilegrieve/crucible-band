@@ -2,11 +2,321 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Crucible of Scorn</title>
-</head>
-<body style="background: #0a0a0d; color: #ef2d3e; font-family: sans-serif; text-align: center; padding-top: 100px;">
-    <h1 style="font-size: 3rem;">CRUCIBLE OF SCORN</h1>
-    <p style="color: #fff; font-size: 1.2rem;">Live from Prince George, BC</p>
-    <p style="color: #aaa;">Site is online and working.</p>
-</body>
-</html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crucible of Scorn | Official Band Page & EPK</title>
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #08080a;
+            --bg-card: #121013;
+            --blood-red: #ef2d3e;
+            --dark-red: #8b0000;
+            --border-red: rgba(239, 45, 62, 0.3);
+            --text-light: #f5f5f7;
+            --text-muted: #a0a0aa;
+            --font-head: 'Orbitron', sans-serif;
+            --font-body: 'Red Hat Display', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: #050507;
+            border-bottom: 2px solid var(--border-red);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-head);
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        .nav-logo span {
+            color: var(--blood-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.75rem;
+        }
+
+        nav a {
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--blood-red);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.85rem 1.75rem;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--blood-red);
+            color: #fff;
+            border: 1px solid var(--blood-red);
+            box-shadow: 0 4px 15px rgba(239, 45, 62, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #d81f2f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 45, 62, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(18, 16, 19, 0.8);
+            color: var(--text-light);
+            border: 1px solid var(--border-red);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(239, 45, 62, 0.15);
+            border-color: var(--blood-red);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            background: radial-gradient(circle at center, #23080b 0%, #08080a 80%);
+            border-bottom: 1px solid var(--border-red);
+        }
+
+        .hero-logo-box {
+            max-width: 440px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-logo-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(239, 45, 62, 0.45));
+        }
+
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(239, 45, 62, 0.3);
+        }
+
+        .hero-sub {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: var(--blood-red);
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .sec-title {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .sec-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--blood-red);
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-red);
+            padding: 2.5rem;
+            border-radius: 4px;
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .bio-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .bio-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--blood-red);
+            font-weight: bold;
+        }
+
+        /* Music Section */
+        .music-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (min-width: 850px) {
+            .music-grid {
+                grid-template-columns: 320px 1fr;
+            }
+        }
+
+        .album-art-wrap {
+            border: 1px solid var(--border-red);
+            background: #18090b;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .album-art-wrap img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .release-tag {
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            color: var(--blood-red);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .album-title {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .album-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .tracklist {
+            list-style: none;
+            margin-bottom: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tracklist li {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+        }
+
+        .tracklist li:hover {
+            color: var(--blood-red);
+        }
+
+        .t-num {
+            color: var(--blood-red);
+            font-family: var(--font-head);
+            font-weight: bold;
+            width: 35px;
+        }
+
+        .t-title {
+            font-weight: 700;
+        }
+
+        .stream-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Tour Row */
+        .tour-row {
+            display: flex;
+            justify-content: space-between;

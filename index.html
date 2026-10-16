@@ -230,16 +230,15 @@
             font-weight: bold;
         }
 
-        /* Band Members Vertical Stack & Emergence Fade */
+        /* Band Members Vertical Stack */
         .member-stack {
             display: flex;
             flex-direction: column;
-            gap: 4.5rem; /* Even spacing between cards */
+            gap: 4.5rem;
             max-width: 820px;
             margin: 4rem auto 0;
         }
 
-        /* The member card wrapper */
         .member-card {
             display: grid;
             grid-template-columns: 1fr;
@@ -250,8 +249,6 @@
             padding: 2.5rem;
             border-radius: 6px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            
-            /* Card starts faded slightly down */
             opacity: 0;
             transform: translateY(35px);
             transition: opacity 1s ease-out, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
@@ -263,13 +260,11 @@
             }
         }
 
-        /* Scrolled into view state */
         .member-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Headshot Image Container */
         .member-img-box {
             position: relative;
             width: 100%;
@@ -282,7 +277,6 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
         }
 
-        /* Headshot Image: Starts pitch black */
         .member-img-box img {
             width: 100%;
             height: 100%;
@@ -293,7 +287,6 @@
             transition: filter 1.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.4s ease-out;
         }
 
-        /* Photo emerges from the shadows into full color */
         .member-card.visible .member-img-box img {
             filter: brightness(1) contrast(100%);
             transform: scale(1);
@@ -346,90 +339,6 @@
             line-height: 1.7;
         }
 
-        /* Music Section */
-        .music-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        @media (min-width: 850px) {
-            .music-grid {
-                grid-template-columns: 320px 1fr;
-            }
-        }
-
-        .album-art-wrap {
-            border: 1px solid var(--border-red);
-            background: #18090b;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .album-art-wrap img {
-            width: 100%;
-            max-width: 240px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .release-tag {
-            font-family: var(--font-head);
-            font-size: 0.8rem;
-            color: var(--blood-red);
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        .album-title {
-            font-family: var(--font-head);
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .album-desc {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .tracklist {
-            list-style: none;
-            margin-bottom: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .tracklist li {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.95rem;
-        }
-
-        .tracklist li:hover {
-            color: var(--blood-red);
-        }
-
-        .t-num {
-            color: var(--blood-red);
-            font-family: var(--font-head);
-            font-weight: bold;
-            width: 35px;
-        }
-
-        .t-title {
-            font-weight: 700;
-        }
-
-        .stream-btns {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
         /* Tour Row */
         .tour-row {
             display: flex;
@@ -467,22 +376,7 @@
             margin: 0.75rem auto 2rem;
         }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(239, 45, 62, 0.2);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            background: #050507;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-        }
-        /* Square Artwork Reveal Vault */
+        /* Artwork Vault */
         .artwork-vault {
             position: relative;
             width: 100%;
@@ -496,7 +390,6 @@
             align-items: center;
         }
 
-        /* Top & Bottom blends into dark background */
         .artwork-vault::before,
         .artwork-vault::after {
             content: '';
@@ -518,7 +411,6 @@
             background: linear-gradient(0deg, var(--bg-dark) 0%, transparent 100%);
         }
 
-        /* Centered Frame */
         .vault-art-box {
             position: relative;
             z-index: 1;
@@ -557,9 +449,9 @@
             text-shadow: 0 0 10px rgba(239, 45, 62, 0.4);
         }
 
-        /* Live Show Photo Reel / Infinite Marquee */
+        /* Gallery Section */
         .gallery-section {
-            padding: 5rem 0; /* Full-bleed width across screen */
+            padding: 5rem 0;
             overflow: hidden;
             background: #050507;
             border-top: 1.5px solid var(--border-red);
@@ -573,6 +465,81 @@
             padding: 0 2rem;
             text-align: center;
         }
+
+        .marquee-container {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            flex-shrink: 0;
+            animation: scrollMarquee 45s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .gallery-item {
+            width: 320px;
+            height: 220px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-red);
+            background: #121013;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--blood-red);
+            box-shadow: 0 12px 30px rgba(239, 45, 62, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%) contrast(110%);
+            transition: filter 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        @keyframes scrollMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% - 1.5rem));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .gallery-item {
+                width: 250px;
+                height: 175px;
+            }
+            .marquee-track {
+                animation-duration: 35s;
+            }
+        }
+
         /* Lightbox Fullscreen Modal */
         .lightbox-modal {
             display: none;
@@ -611,7 +578,6 @@
             transform: scale(1);
         }
 
-        /* Close Button ('X') */
         .lightbox-close {
             position: absolute;
             top: 1.5rem;
@@ -629,84 +595,15 @@
             transform: scale(1.15);
         }
 
-        /* Indicate gallery items are clickable */
-        .gallery-item {
-            cursor: pointer;
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(239, 45, 62, 0.2);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: #050507;
         }
-
-        /* Vignettes on the left/right edges so photos dissolve into the background */
-        .marquee-container {
-            display: flex;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 1.5rem;
-            flex-shrink: 0;
-            animation: scrollMarquee 45s linear infinite;
-        }
-
-        /* Pause auto-scroll on hover or tap */
-        .marquee-container:hover .marquee-track {
-            animation-play-state: paused;
-        }
-
-        .gallery-item {
-            width: 320px;
-            height: 220px;
-            flex-shrink: 0;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid var(--border-red);
-            background: #121013;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-4px) scale(1.02);
-            border-color: var(--blood-red);
-            box-shadow: 0 12px 30px rgba(239, 45, 62, 0.4);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: grayscale(20%) contrast(110%);
-            transition: filter 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            filter: grayscale(0%) contrast(100%);
-        }
-
-        /* Continuous Loop Animation */
-        @keyframes scrollMarquee {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-100% - 1.5rem));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                width: 250px;
-                height: 175px;
-            }
-            .marquee-track {
-                animation-duration: 35s; /* slightly faster on smaller screens */
-            }
-        }
-        
     </style>
 </head>
 <body>
@@ -804,7 +701,6 @@
             </div>
         </div>
     </section>
-    </section>
 
     <!-- Artwork Reveal Vault -->
     <div class="artwork-vault">
@@ -817,10 +713,6 @@
     </div>
 
     <!-- Music Section -->
-    <section id="music">
-
-
-       <!-- Music Section -->
     <section id="music">
         <h2 class="sec-title">Sonic Executions</h2>
         <div style="max-width: 820px; margin: 0 auto; background: var(--bg-card); border: 1.5px solid var(--border-red); padding: 1.5rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);">
@@ -844,7 +736,6 @@
         </div>
     </section>
 
-
     <!-- Tour Section -->
     <section id="shows">
         <h2 class="sec-title">Live Dates</h2>
@@ -858,7 +749,7 @@
         </div>
     </section>
 
-        <!-- Live Show Gallery Reel -->
+    <!-- Live Show Gallery Reel -->
     <section class="gallery-section" id="gallery">
         <div class="gallery-title-wrap">
             <h2 class="sec-title" style="margin-bottom: 0;">Battleground Archive</h2>
@@ -873,17 +764,17 @@
                 <div class="gallery-item"><img src="images/3.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/4.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/5.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
-                 <div class="gallery-item"><img src="images/6.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/6.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/7.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/8.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/9.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/10.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
-                 <div class="gallery-item"><img src="images/11.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/11.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/12.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/13.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/14.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/15.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
-                 <div class="gallery-item"><img src="images/16.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/16.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/17.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/18.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/19.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
@@ -892,22 +783,22 @@
 
             <!-- Duplicate Track Instance for Seamless Loop -->
             <div class="marquee-track" aria-hidden="true">
-              <div class="gallery-item"><img src="images/1.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/1.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/2.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/3.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/4.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/5.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
-                 <div class="gallery-item"><img src="images/6.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/6.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/7.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/8.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/9.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/10.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
-                 <div class="gallery-item"><img src="images/11.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/11.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/12.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/13.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/14.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/15.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
-                 <div class="gallery-item"><img src="images/16.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
+                <div class="gallery-item"><img src="images/16.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/17.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/18.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
                 <div class="gallery-item"><img src="images/19.jpg" onerror="this.src='logo.png'; this.style.padding='15%';" alt="Crucible of Scorn Live"></div>
@@ -942,13 +833,19 @@
         <p>© 2026 Crucible of Scorn. Prince George, BC, Canada.</p>
     </footer>
 
-    <!-- Intersection Observer: Emerges photo and card when scrolled into view -->
+    <!-- Lightbox Modal Container -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Expanded View">
+    </div>
+
+    <!-- Scripts -->
     <script>
+        // Scroll-triggered member card emergence
         const cards = document.querySelectorAll('.member-card');
-        
         const observerOptions = {
             root: null,
-            threshold: 0.25, /* Fires when 25% of card enters view */
+            threshold: 0.25,
             rootMargin: "0px 0px -40px 0px"
         };
 
@@ -964,40 +861,34 @@
         cards.forEach(card => {
             observer.observe(card);
         });
-        // Lightbox Functionality
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const galleryImgs = document.querySelectorAll('.gallery-item img');
 
-    galleryImgs.forEach(img => {
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt || 'Expanded Show Photo';
-            lightbox.classList.add('active');
+        // Lightbox Modal Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryImgs = document.querySelectorAll('.gallery-item img');
+
+        galleryImgs.forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt || 'Expanded Show Photo';
+                lightbox.classList.add('active');
+            });
         });
-    });
 
-    // Close when tapping backdrop or 'X'
-    lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg) {
-            lightbox.classList.remove('active');
-            lightboxImg.src = '';
-        }
-    });
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            }
+        });
 
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            lightbox.classList.remove('active');
-            lightboxImg.src = '';
-        }
-    });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+            }
+        });
     </script>
-<!-- Lightbox Modal Container -->
-    <div id="lightbox" class="lightbox-modal">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" src="" alt="Expanded View">
-    </div>
 </body>
 </html>

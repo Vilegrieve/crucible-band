@@ -142,11 +142,23 @@
             margin: 0 auto 2rem;
         }
 
-        .hero-logo-box img {
+     .hero-logo-box img {
             width: 100%;
             height: auto;
             display: block;
-            filter: drop-shadow(0 0 20px rgba(239, 45, 62, 0.45));
+            animation: gentleGlow 4s ease-in-out infinite alternate;
+        }
+
+        /* Gentle breathing pulse for the crimson glow */
+        @keyframes gentleGlow {
+            0% {
+                filter: drop-shadow(0 0 15px rgba(239, 45, 62, 0.35))
+                        drop-shadow(0 0 35px rgba(139, 0, 0, 0.25));
+            }
+            100% {
+                filter: drop-shadow(0 0 30px rgba(239, 45, 62, 0.75))
+                        drop-shadow(0 0 60px rgba(239, 45, 62, 0.35));
+            }
         }
 
         .hero h1 {

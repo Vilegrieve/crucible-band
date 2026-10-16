@@ -573,6 +573,66 @@
             padding: 0 2rem;
             text-align: center;
         }
+        /* Lightbox Fullscreen Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background-color: rgba(5, 5, 7, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 4px;
+            border: 2px solid var(--blood-red);
+            box-shadow: 0 0 40px rgba(239, 45, 62, 0.4), 0 20px 60px rgba(0, 0, 0, 0.95);
+            object-fit: contain;
+            cursor: default;
+            transform: scale(0.92);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        /* Close Button ('X') */
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            color: var(--text-light);
+            font-size: 2.5rem;
+            font-family: var(--font-head);
+            line-height: 1;
+            cursor: pointer;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--blood-red);
+            transform: scale(1.15);
+        }
+
+        /* Indicate gallery items are clickable */
+        .gallery-item {
+            cursor: pointer;
+        }
 
         /* Vignettes on the left/right edges so photos dissolve into the background */
         .marquee-container {
@@ -904,7 +964,40 @@
         cards.forEach(card => {
             observer.observe(card);
         });
-    </script>
+        // Lightbox Functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryImgs = document.querySelectorAll('.gallery-item img');
 
+    galleryImgs.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || 'Expanded Show Photo';
+            lightbox.classList.add('active');
+        });
+    });
+
+    // Close when tapping backdrop or 'X'
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+        }
+    });
+    </script>
+<!-- Lightbox Modal Container -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Expanded View">
+    </div>
 </body>
 </html>
